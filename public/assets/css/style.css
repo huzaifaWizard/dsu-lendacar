@@ -1,0 +1,588 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: 'Mona Sans';
+    src: url("../fonts/Mona-Sans.woff2");
+}
+
+:root {
+    --theme-color: #339967;
+    --text-color: #000;
+    --body-bg: #ffffff;
+}
+
+body {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    background: var(--body-bg);
+    box-sizing: border-box;
+    overflow-x: clip;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: initial !important;
+    overscroll-behavior: none !important;
+}
+
+.container-fluid {
+    max-width: 100%;
+    padding-inline: 12px;
+}
+
+.container {
+    max-width: 85%;
+    margin: 0 auto;
+    width: 100%;
+}
+
+p {
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    color: var(--text-color);
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Mona Sans', serif;
+    color: var(--text-color);
+}
+
+.img-auto {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+a,
+button {
+    text-decoration: none !important;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover,
+button:hover {
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+figure {
+    margin: 0;
+}
+
+/*buttons*/
+
+.themeBtn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: 1.125rem;
+    color: #fff;
+    background: linear-gradient(to right, #fff, #fff);
+    background-size: 0 100%;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-color: var(--theme-color);
+    border-radius: 5px;
+    font-weight: 600;
+    border: 2px solid var(--theme-color);
+}
+
+.themeBtn:hover {
+    background-size: 100% 100%;
+    color: var(--theme-color);
+}
+
+section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+    gap: 2rem 0;
+}
+
+.row [class*="col-"] {
+    position: relative;
+}
+
+.secHeading {
+    font-size: 4rem;
+    color: #000;
+    text-transform: capitalize;
+    margin: 0 0 1.25rem;
+}
+
+.secHeading span {
+    display: block;
+    color: var(--theme-color);
+}
+
+span.title {
+    font-size: inherit;
+    color: var(--theme-color);
+    font-weight: 700;
+}
+
+/*  header css start  */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 11111;
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+header .navbar-brand img {
+    width: 80px;
+    height: 80px;
+}
+
+header .navbar-brand {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 0.5rem;
+}
+
+header .navbar-brand h3 {
+    font-size: 1.375rem;
+    font-weight: 600;
+}
+
+header .navbar-brand h3 span {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+header .navbar-nav .nav-item .nav-link {
+    color: #000;
+    font-size: 1.125rem;
+    font-weight: 600;
+    position: relative;
+    padding: 0;
+}
+
+header .navbar-nav {
+    gap: 3rem;
+    align-items: center;
+}
+
+header .navbar-nav .nav-item .nav-link.active,
+header .navbar-nav .nav-item .nav-link:hover {
+    color: var(--theme-color);
+}
+
+header .navbar-nav .nav-item .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--theme-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all 0.3s ease-in-out;
+}
+
+header .navbar-nav .nav-item .nav-link.active::before,
+header .navbar-nav .nav-item .nav-link:hover::before {
+    transform: scaleX(1);
+}
+
+/*  header css end  */
+.preloader {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1111111;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    transform-origin: top;
+}
+
+.preloader svg {
+    width: 30%;
+    height: 30%;
+}
+
+.preloader .small-circle {
+    stroke-dasharray: 210;
+    stroke-dashoffset: 210;
+    transform-origin: 50%;
+    animation: 1s draw-small infinite alternate;
+}
+
+@keyframes draw-small {
+    0% {
+        stroke-dashoffset: 0;
+        transform: rotate(0deg);
+    }
+    100% {
+        stroke-dashoffset: 210;
+        transform: rotate(360deg);
+    }
+}
+
+.preloader .big-circle {
+    stroke-dasharray: 240;
+    stroke-dashoffset: 240;
+    transform-origin: 50%;
+    animation: 1s draw-big infinite alternate 0.5s;
+}
+
+@keyframes draw-big {
+    0% {
+        stroke-dashoffset: 0;
+        transform: rotateY(180deg) rotate(360deg);
+    }
+    100% {
+        stroke-dashoffset: 240;
+        transform: rotateY(180deg) rotate(0deg);
+    }
+}
+
+.heroSec {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heroSec > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right;
+}
+
+.heroSec .content {
+    width: 100%;
+}
+
+.heroSec .content h2 {
+    font-size: 6rem;
+    margin: 0 0 0.5rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.heroSec .content p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 0 2rem;
+    color: #fff;
+}
+
+.sellSec .mainImg img {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.sellSec .content p {
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin: 0 0 1rem;
+}
+
+.bannerSec {
+    min-height: 70vh;
+}
+
+.bannerSec > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bannerSec .secHeading {
+    color: #fff;
+    text-align: center;
+    font-size: 6rem;
+}
+
+.bannerSec p {
+    font-size: 2rem;
+    color: #Fff;
+    margin: 0 0 1.5rem;
+}
+
+.bannerSec .secHeading span {
+    display: inline;
+}
+
+.bannerSec::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.bannerSec .container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+footer {
+    background: #000;
+}
+
+footer .copyright {
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    text-align: right;
+    color: #fff;
+}
+
+footer .copyright a {
+    color: var(--theme-color);
+    font-weight: 700;
+}
+
+.heroSec.inrBnr {
+    height: 80vh;
+}
+
+.listingSec {
+    padding: 8rem 0;
+}
+
+.listingSec .secHeading {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.prodBox {
+    display: block;
+    background: #Fff;
+    border-radius: 15px;
+    box-shadow: 4px 4px 15px #0004;
+    overflow: hidden;
+}
+
+.prodBox figure {
+    overflow: hidden;
+}
+
+.prodBox figure img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.prodBox .content {
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+.prodBox .content h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--theme-color);
+    margin: 0 0 0.5rem;
+}
+
+.prodBox .content h5 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.prodBox .content span {
+    position: absolute;
+    right: 1rem;
+    top: 2rem;
+    color: #000;
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.prodBox:hover figure img {
+    transform: scale(1.1);
+}
+
+.rentForm {
+    display: flex;
+    align-items: center;
+    gap: 2rem 0;
+    flex-wrap: wrap;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 16px #ccc8;
+    padding: 2rem 1rem;
+}
+
+.rentForm .inputCont {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 33.33333%;
+    width: 33.3333%;
+    padding: 0 7.5px;
+}
+
+.rentForm .inputCont input {
+    color: #000;
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 0.5rem;
+}
+
+.rentForm .inputCont label {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.rentForm .headingCont {
+    flex: 0 1 100%;
+    width: 100%;
+}
+
+.rentForm .headingCont h4 {
+    font-size: 2.375rem;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.checkBoxCont {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 0;
+}
+
+.checkBoxCont .inputCont {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    flex: auto;
+    font-size: 1.125rem;
+    width: auto;
+    margin: 0;
+}
+
+.checkBoxCont .inputCont label {
+    font-size: 1.25rem;
+}
+
+.checkBoxCont .inputCont input {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    accent-color: var(--theme-color);
+}
+
+.rentSec {
+    padding: 8rem 0;
+}
+
+.rentSec .secHeading {
+    text-align: center;
+}
+
+.listingDetailSec {
+    padding: 6rem 0;
+}
+
+.listingDetailSec .prodImg img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.listingDetailSec .content h3 {
+    font-size: 2.5rem;
+    color: var(--theme-color);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.listingDetailSec .content span {
+    font-size: 1.25rem;
+    color: #000;
+}
+
+.listingDetailSec .content h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.listingDetailSec .content .secHeading {
+    font-size: 3.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.listingDetailSec .content p {
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.listingDetailSec .content p + .secHeading {
+    margin-top: 3rem;
+}
+
+.listingDetailSec .content p strong {
+    flex: 0 1 150px;
+}
+
+.listingDetailSec .content .btnCont {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: end;
+}
+
+.thankSec {
+    text-align: center;
+}
+
+.thankSec .secHeading {
+    font-size: 6rem;
+}
+
+.thankSec .secHeading span {
+    font-size: 8rem;
+}
+
+.thankSec p {
+    font-size: 2rem;
+    margin: 0 0 1rem;
+}
